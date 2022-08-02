@@ -1,2 +1,3 @@
 #!/bin/bash
-gradle app:clean app:run
+gradle clean app:jar
+java -jar app/build/libs/app.jar $@

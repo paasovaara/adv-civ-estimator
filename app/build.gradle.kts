@@ -34,6 +34,9 @@ dependencies {
 
     // Use the Kotlin JUnit integration.
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit")
+
+    // KotlinX CLI
+    implementation("org.jetbrains.kotlinx:kotlinx-cli:0.3.4")
 }
 
 application {
