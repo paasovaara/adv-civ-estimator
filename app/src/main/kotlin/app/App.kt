@@ -1,6 +1,7 @@
 package app
 
 import kotlinx.cli.*
+import app.UserInput
 
 class App {
     companion object {
@@ -18,7 +19,18 @@ class App {
     }
 
     fun launch() {
-        askNewOrContinue()
+        var result = UserInput.askNewOrContinue()
+        while (result != UserInput.Result.Quit && result != UserInput.Result.Error) {
+            when (result) {
+                UserInput.Result.New -> println("New")
+                UserInput.Result.Continue -> println("continue")
+                UserInput.Result.AddData -> println("add data")
+                UserInput.Result.Simulate -> println("simulate")
+            }
+
+            result = UserInput.askMoreDataOrSimulation()
+        }
+        println("Bye bye")
     }
 }
 
