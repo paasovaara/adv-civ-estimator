@@ -8,3 +8,4 @@
  */
 
 rootProject.name = "adv-civ-estimator"
+include("app")
