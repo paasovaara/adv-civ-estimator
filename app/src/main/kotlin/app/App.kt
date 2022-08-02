@@ -18,7 +18,7 @@ class App {
     }
 
     fun launch() {
-
+        askNewOrContinue()
     }
 }
 
