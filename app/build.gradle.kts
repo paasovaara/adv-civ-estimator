@@ -8,7 +8,9 @@
 
 plugins {
     // Apply the org.jetbrains.kotlin.jvm Plugin to add support for Kotlin.
-    id("org.jetbrains.kotlin.jvm") version "1.6.21"
+    //id("org.jetbrains.kotlin.jvm") version "1.6.21"
+    kotlin("jvm") version "1.7.10"
+    kotlin("plugin.serialization") version "1.7.10"
 
     // Apply the application plugin to add support for building a CLI application in Java.
     application
@@ -37,6 +39,10 @@ dependencies {
 
     // KotlinX CLI
     implementation("org.jetbrains.kotlinx:kotlinx-cli:0.3.4")
+
+    // Json serialization
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.2")
+
 }
 
 application {
