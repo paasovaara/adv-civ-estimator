@@ -12,7 +12,7 @@ object UserInput {
         Simulate
     }
 
-    data class Option (val option: Int, val text: String)
+    private data class Option (val option: Int, val text: String)
 
     fun askNewOrContinue() : Result {
         val options: ArrayList<Option> = arrayListOf(
@@ -44,8 +44,18 @@ object UserInput {
         return Result.Error
     }
 
+    fun askNewGame() : String {
+        return ask("Please enter the name for this new game")
+    }
+    private fun ask(question: String) : String {
+        println(question)
+        //TODO improve error handling to be more consistent, now this throws instead of returns an error
+        return readln().trim()
+    }
+
     private fun ask(question:String, options: ArrayList<Option>) : Option {
         while (true) {
+            println("===================================")
             println(question)
             for (option in options) {
                 println("${option.option}) ${option.text}")
@@ -59,9 +69,7 @@ object UserInput {
                 else
                     println("Not a valid option, please try again")
             } catch (e: Exception) {
-                println("Input error, please try again")
-
-                //println(e)
+                println("Input error, please try again. Error: ${e.message}")
             }
         }
     }

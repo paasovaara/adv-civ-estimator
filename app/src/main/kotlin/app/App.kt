@@ -5,8 +5,8 @@ import app.UserInput
 
 class App {
     companion object {
-        val appName = "Advanced Civ Estimator"
-        val version = "0.0.1"
+        const val appName = "Advanced Civ Estimator"
+        const val version = "0.0.1"
         val greeting: String
             get() {
                 return  "     _       _                               _    ____ _        \n" +
@@ -22,15 +22,21 @@ class App {
         var result = UserInput.askNewOrContinue()
         while (result != UserInput.Result.Quit && result != UserInput.Result.Error) {
             when (result) {
-                UserInput.Result.New -> println("New")
+                UserInput.Result.New -> initNewGame()
                 UserInput.Result.Continue -> println("continue")
                 UserInput.Result.AddData -> println("add data")
                 UserInput.Result.Simulate -> println("simulate")
+                else -> println("Unexpected error!!")
             }
 
             result = UserInput.askMoreDataOrSimulation()
         }
         println("Bye bye")
+    }
+
+    private fun initNewGame() {
+        val gameName = UserInput.askNewGame()
+
     }
 }
 
