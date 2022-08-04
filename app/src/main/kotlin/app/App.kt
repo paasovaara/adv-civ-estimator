@@ -23,7 +23,7 @@ class App {
         while (result != UserInput.Result.Quit && result != UserInput.Result.Error) {
             when (result) {
                 UserInput.Result.New -> initNewGame()
-                UserInput.Result.Continue -> println("continue")
+                UserInput.Result.Continue -> loadGame()
                 UserInput.Result.AddData -> println("add data")
                 UserInput.Result.Simulate -> println("simulate")
                 else -> println("Unexpected error!!")
@@ -36,7 +36,14 @@ class App {
 
     private fun initNewGame() {
         val gameName = UserInput.askNewGame()
+        val model = Model.instance()
+        model.newGame(gameName)
+    }
 
+    private fun loadGame() {
+        val model = Model.instance()
+        val games = model.listStoredGames()
+        games.forEach { game -> println(game) }
     }
 }
 

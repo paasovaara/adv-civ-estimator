@@ -33,3 +33,4 @@ outTmp/
 /test.output
 /kotlin-native/dist
 kotlin-ide/
+gamerepository.json

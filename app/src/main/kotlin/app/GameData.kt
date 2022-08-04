@@ -1,7 +1,6 @@
 package app
 
-import com.google.gson.Gson
-import java.io.Serializable
+import java.time.LocalDateTime
 
 enum class CardType {
     Bone, Clay, Hides,
@@ -113,28 +112,15 @@ data class Card(val type: CardType) {
 
 }
 
-/*abstract class Card(
-        open val type: CardType,
-        open val deck: Int,
-        open val name: String,
-) {
-    abstract val isCalamity: Boolean
-}
-
-class CommodityCard(
-        type: String,
-        deck: Int,
-        name: String
-) : Card(
-    type, deck, name
-) {
-    override val isCalamity: Boolean
-        get() = false
-}*/
-
 data class GameData(
     val name: String,
+    //val created: LocalDateTime,
+    //val updated: LocalDateTime,
     val cardDecks: HashMap<Int, ArrayList<Card>>,
     val dealtCards: HashMap<Int, ArrayList<Card>>,
-    val roundIndexes: ArrayList<Int>
+    val roundIndexes: ArrayList<Int> // Or use Lists inside lists?
+)
+
+data class GameRepository(
+        val games: ArrayList<GameData>
 )

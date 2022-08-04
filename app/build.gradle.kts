@@ -41,8 +41,8 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-cli:0.3.4")
 
     // Json serialization
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.2")
-
+    //implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.2")
+    implementation("com.google.code.gson:gson:2.9.1")
 }
 
 application {
